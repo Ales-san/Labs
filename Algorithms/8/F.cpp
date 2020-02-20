@@ -52,7 +52,7 @@ string modified_bfs(int start, int end, int n, vector <vector <pair<int, char>>>
   if (cur == start) {
       return ans;
   }
-  return "1-\n";
+  return "1-";
 }
 
 int get_number(int i, int j, int m) {
@@ -100,8 +100,9 @@ int main() {
   }
  
   string ans = modified_bfs(start, end, n * m, g);
-  
-  cout << ans.length() << '\n';
+  if(ans != "1-") {
+      cout << ans.length() << '\n';
+  }
   for(int i = ans.length() - 1; i >= 0; i--) {
   cout << ans[i];
       
