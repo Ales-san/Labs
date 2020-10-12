@@ -12,7 +12,7 @@ public class Main {
             System.out.println(data.tryGetDouble("LEGACY_XML", "ListenTcpPort"));
             System.out.println(data.tryGetString("DEBUG", "PlentySockMaxQSize"));
             //System.out.println(data.tryGetString("SMTH", "IDK"));
-            //System.out.println(data.tryGetInt("LEGACY_XML", "Port"));
+            System.out.println(data.tryGetString("LEGACY_XML", "Port"));
             System.out.println(data.tryGetString("NEW0", "Smth"));
 
         } catch (Exception e) {

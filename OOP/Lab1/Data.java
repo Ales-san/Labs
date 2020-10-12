@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.zip.InflaterInputStream;
 
 public class Data {
     Map<String, INISection> sections = new HashMap<>();
@@ -21,7 +20,11 @@ public class Data {
     public double tryGetDouble(String section, String parameter) throws  Exception{
         try {
             if(sections.containsKey(section)) {
-                return Double.parseDouble(sections.get(section).get_parameter(parameter).get_value());
+                try {
+                    return Double.parseDouble(sections.get(section).get_parameter(parameter).get_value());
+                } catch (Exception e) {
+                    throw new Exception(e.getMessage() + ", section: " + section);
+                }
             } else {
                 throw new Exception("No such section: " + section);
             }
@@ -35,7 +38,11 @@ public class Data {
     public int tryGetInt(String section, String parameter) throws  Exception{
         try {
             if(sections.containsKey(section)) {
-                return Integer.parseInt(sections.get(section).get_parameter(parameter).get_value());
+                try {
+                    return Integer.parseInt(sections.get(section).get_parameter(parameter).get_value());
+                } catch (Exception e) {
+                    throw new Exception(e.getMessage() + ", section: " + section);
+                }
             } else {
                 throw new Exception("No such section: " + section);
             }
@@ -48,7 +55,11 @@ public class Data {
 
     public String tryGetString(String section, String parameter) throws  Exception {
         if (sections.containsKey(section)) {
-            return sections.get(section).get_parameter(parameter).get_value();
+            try {
+                return sections.get(section).get_parameter(parameter).get_value();
+            } catch (Exception e) {
+                throw new Exception(e.getMessage() + ", section: " + section);
+            }
         } else {
             throw new Exception("There is no such section: " + section);
         }
