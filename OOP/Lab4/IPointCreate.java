@@ -1,5 +1,5 @@
 import java.util.ArrayList;
 
 public interface IPointCreate {
-    void createPoint(FileInfo info, RestorePoint restorePoint);
+    void createPoint(ArrayList<FileInfo> fileList, ArrayList<RestorePoint> restorePoints, IPointStore storeAlgorithm);
 }
